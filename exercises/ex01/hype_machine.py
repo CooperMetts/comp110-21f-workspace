@@ -6,8 +6,6 @@ __author__ = "730336784"
 
 # TODO: Implement your program logic here
 name: str = input("What is your name?")
-print("Nice to meet," + name + ".")
-home: str = input(name + ", where are you from?")
-print("I've heard, " + home + ", is a beautiful place to live!")
-print("You are lucky," + name + ", to live in such a nice place.")
-print("Have a good day " + name + "!")
+print(name + ", it is nice to meet you.")
+print("You are awesome, " + name + ", and you rock!")
+print("Have a good day, " + name)
