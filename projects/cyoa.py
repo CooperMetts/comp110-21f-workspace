@@ -1,7 +1,18 @@
 """NBA Superstar quiz."""
 
+from random import randint
+
+jersey_number: int = randint(0, 45)
 player: str 
-points: int   
+points: int  
+LEBRON_EMOJI: str = "\U0001F451"
+STEPH_EMOJI: str = "\U0001F4A6"
+GIANNIS_EMOJI: str = "\U0001F1EC"
+HARDEN_EMOJI: str = "\U0001F9D4"
+JORDAN_EMOJI: str = "\U0001F410"
+GARNETT_EMOJI: str = "\U0001F39F"
+IVERSON_EMOJI: str = "\U0001F3C0"
+SHAQ_EMOJI: str = "\U0001F9B8"
 
 
 def greeting() -> None:
@@ -191,21 +202,21 @@ def current() -> None:
                             harden_count = harden_count + 1
 
             if lebron_count > steph_count and lebron_count > giannis_count and lebron_count > harden_count:
-                print(f"{player}, your current NBA superstar is Lebron James because you answered {lebron_count} questions the way Lebron would have.")
+                print(f"{player}, your current NBA superstar is Lebron James because you answered {lebron_count} questions the way Lebron would have. \n Your emoji is {LEBRON_EMOJI} because Lebron's nickname is the King. \n Your jersey number is {jersey_number}.")
 
             if steph_count > lebron_count and steph_count > giannis_count and steph_count > harden_count:
-                print(f"{player}, your current NBA superstar is Steph Curry because you answered {steph_count} questions the way Steph would have.")
+                print(f"{player}, your current NBA superstar is Steph Curry because you answered {steph_count} questions the way Steph would have. \n Your emoji is {STEPH_EMOJI} because Steph is one of the splash bros. \n Your jersey number is {jersey_number}.")
 
             if giannis_count > lebron_count and giannis_count > steph_count and giannis_count > harden_count:
-                print(f"{player}, your current NBA superstar is Giannis Antetokounmpo because you answered {giannis_count} questions the way Giannis would have.")
+                print(f"{player}, your current NBA superstar is Giannis Antetokounmpo because you answered {giannis_count} questions the way Giannis would have. \n Your emoji is {GIANNIS_EMOJI} because his nickname is the Greek Freak. \n Your jersey number is {jersey_number}.")
 
             if harden_count > lebron_count and harden_count > steph_count and harden_count > giannis_count:
-                print(f"{player}, your current NBA superstar is James Harden because you answered {harden_count} questions the way James would have.")
+                print(f"{player}, your current NBA superstar is James Harden because you answered {harden_count} questions the way James would have. \n Your emoji is {HARDEN_EMOJI} because his nickname is the Beard. \n Your jersey number is {jersey_number}.")
 
         points = points + 1
 
 
-def former() -> None:
+def former(x: int) -> int:
     jordan_count: int = 0
     garnett_count: int = 0
     iverson_count: int = 0
@@ -384,34 +395,53 @@ def former() -> None:
                             shaq_count = shaq_count + 1
 
             if jordan_count > garnett_count and jordan_count > iverson_count and jordan_count > shaq_count:
-                print(f"{player}, your former NBA superstar is Michael Jordan because you answered {jordan_count} questions the way Mike would have.")
+                print(f"{player}, your former NBA superstar is Michael Jordan because you answered {jordan_count} questions the way Mike would have. \n Your emoji is {JORDAN_EMOJI} because Mike is the GOAT. \n Your jersey number is {jersey_number}.")
 
             if garnett_count > jordan_count and garnett_count > iverson_count and garnett_count > shaq_count: 
-                print(f"{player}, your former NBA superstar is Kevin Garnett because you answered {garnett_count} questions the way Kevin would have.")
+                print(f"{player}, your former NBA superstar is Kevin Garnett because you answered {garnett_count} questions the way Kevin would have. \n Your emoji is {GARNETT_EMOJI} because his nickname is the Big Ticket. \n Your jersey number is {jersey_number}.")
 
             if iverson_count > jordan_count and iverson_count > garnett_count and iverson_count > shaq_count:
-                print(f"{player}, your former NBA superstar is Allen Iverson because you answered {iverson_count} questions the way Allen would have.")
+                print(f"{player}, your former NBA superstar is Allen Iverson because you answered {iverson_count} questions the way Allen would have. \n Your emoji is {IVERSON_EMOJI} because there is no good emoji for his nickname — the Truth. \n Your jersey number is {jersey_number}.")
 
             if shaq_count > jordan_count and shaq_count > garnett_count and shaq_count > iverson_count:
-                print(f"{player}, your former NBA superstar is Shaquille O'Neal because you answered {shaq_count} questions the way Shaq would have.")
+                print(f"{player}, your former NBA superstar is Shaquille O'Neal because you answered \n {shaq_count} questions the way Shaq would have. \n Your emoji is {SHAQ_EMOJI} because his nickname is Superman. Your jersey number is {jersey_number}.")
 
         points = points + 1
+
+    return points
 
 
 def main() -> None:
     greeting()
-    print("Would you like to take a quiz to find out which current or former NBA superstar you are? Or would you like to exit the experience?")
-    greet_answer: str = input("A. Current \n B. Former \n C. Exit \n Enter your answer here: ")
     global points
     global player
     points = 0
-    if greet_answer == "A":
-        current()
-    else: 
-        if greet_answer == "B":
-            former()
+    game_loop: str = "Y"
+    while game_loop == "Y":
+        print("Would you like to take a quiz to find out which current or former NBA superstar you are? Or would you like to exit the experience?")
+        greet_answer: str = input("A. Current \n B. Former \n C. Exit \n Enter your answer here: ")
+        if greet_answer == "A":
+            current()
+
+            print("Would you like to take the quiz again, take the other quiz, or exit the experience?")
+            print(f"You have {points} points, right now. Ten is the max number of points you can have but they will be rest to 0 if you choose to take a quiz again.")
+            game_loop = input("Type Y to take one of the quizzes or type N to exit the experience: ")
+            points = 0
+
         else: 
-            print(f"Ok. Good bye. Your total adventure points are {points}.")
+            if greet_answer == "B":
+                former(points)
+
+                print("Would you like to take the quiz again, take the other quiz, or exit the experience?")
+                print(f"You have {points} points, right now. Ten is the max number of points you can have but they will be rest to 0 if you choose to take a quiz again.")
+                game_loop = input("Type Y to take one of the quizzes or type N to exit the experience: ")
+                points = 0
+
+            else: 
+                print(f"Ok, good bye, {player}! It was nice to meet you. Your total adventure points are {points}.")
+                game_loop = "N"
+
+    print(f"Ok, nice playing {player}! Your score was {points}")
 
 
 if __name__ == "__main__":
