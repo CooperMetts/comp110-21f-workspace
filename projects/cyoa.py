@@ -221,9 +221,9 @@ def former(x: int) -> int:
     garnett_count: int = 0
     iverson_count: int = 0
     shaq_count: int = 0
-    global points
+    points_1: int = 0
     global player
-    while points < 10:
+    while points_1 < 10:
         answer_one: str = ""
         answer_two: str = ""
         answer_three: str = ""
@@ -234,10 +234,10 @@ def former(x: int) -> int:
         answer_eight: str = ""
         answer_nine: str = ""
         answer_ten: str = ""
-        if points == 0: 
+        if points_1 == 0: 
             print("Which do you prefer: \n A. Steak \n B. PB&J \n C. Lasagna \n D. Mac & cheese")
             answer_one = input("Type the letter of your answer: ")
-        else: 
+
             if answer_one == "A":
                 jordan_count = jordan_count + 1
             else: 
@@ -250,7 +250,7 @@ def former(x: int) -> int:
                         if answer_one == "D":
                             shaq_count = shaq_count + 1
 
-        if points == 1: 
+        if points_1 == 1: 
             print("What type of basketball player are you: \n A. All-around \n B. Traditional big-man \n C. Offensive juggernaut \n D. Paint beast")
             answer_two = input("Type the letter of your answer: ")
 
@@ -266,7 +266,7 @@ def former(x: int) -> int:
                         if answer_two == "D":
                             shaq_count = shaq_count + 1
 
-        if points == 2:
+        if points_1 == 2:
             print("If you were in the NBA, what would be your top priority: \n A. Winning championships \n B. Playing with friends \n C. Loyalty \n D. Money") 
             answer_three = input("Type the letter of your answer: ")
 
@@ -282,7 +282,7 @@ def former(x: int) -> int:
                         if answer_three == "D":
                             shaq_count = shaq_count + 1
 
-        if points == 3: 
+        if points_1 == 3: 
             print("If you were in the NBA, what would you do with your time off: \n A. More basketball \n B. Play video games \n C. Rap \n D. Make commercials")
             answer_four = input("Type the letter of your answer: ")
 
@@ -298,7 +298,7 @@ def former(x: int) -> int:
                         if answer_four == "D":
                             shaq_count = shaq_count + 1
 
-        if points == 4: 
+        if points_1 == 4: 
             print(" If you weren’t a basketball player, what would you be: \n A. Baseball player \n B. Buisness man \n C. Rapper \n D. Sports analyst")
             answer_five = input("Type the letter of your answer: ")
 
@@ -314,7 +314,7 @@ def former(x: int) -> int:
                         if answer_five == "D":
                             shaq_count = shaq_count + 1
 
-        if points == 5: 
+        if points_1 == 5: 
             print("Would you prefer to play in a big or small market: \n A. Doesn't matter as long as I can win \n B. Doesn't matter as long as I'm playing with my friends \n C. Small market \n D. Big market")
             answer_six = input("Type the letter of your answer: ")
 
@@ -330,7 +330,7 @@ def former(x: int) -> int:
                         if answer_six == "D":
                             shaq_count = shaq_count + 1
 
-        if points == 6: 
+        if points_1 == 6: 
             print("Of the following NBA players, which is your least favorite: \n A. Isaiah Thomas -- bad boy Pistons one \n B. Lebron James \n C. Kobe Bryant \n D. Hakeem Olajuwon")
             answer_seven = input("Type the letter of your answer: ")
 
@@ -346,7 +346,7 @@ def former(x: int) -> int:
                         if answer_seven == "D":
                             shaq_count = shaq_count + 1
 
-        if points == 7: 
+        if points_1 == 7: 
             print("Of the following NBA players, which is your most favorite: \n A. Scottie Pippen \n B. Paul Pierce \n C. Dikembe Mutombo \n D. Kobe Bryant") 
             answer_eight = input("Type the letter of your answer: ")
 
@@ -362,7 +362,7 @@ def former(x: int) -> int:
                         if answer_eight == "D":
                             shaq_count = shaq_count + 1
 
-        if points == 8:
+        if points_1 == 8:
             print("If you could play on any team in the NBA, which would it be: \n A. Chicago Bulls \n B. Boston Celtics \n C. Philadelphia 76ers \n D. LA Lakers")
             answer_nine = input("Type the letter of your answer: ")
 
@@ -378,7 +378,7 @@ def former(x: int) -> int:
                         if answer_nine == "D":
                             shaq_count = shaq_count + 1
 
-        if points == 9: 
+        if points_1 == 9: 
             print("What is your least favorite team in the NBA: \n A. Detroit Pistons \n B. Miami Heat \n C. LA Lakers \n D. Houston Rockets")
             answer_ten = input("Type the letter of your answer: ")
 
@@ -406,7 +406,7 @@ def former(x: int) -> int:
             if shaq_count > jordan_count and shaq_count > garnett_count and shaq_count > iverson_count:
                 print(f"{player}, your former NBA superstar is Shaquille O'Neal because you answered \n {shaq_count} questions the way Shaq would have. \n Your emoji is {SHAQ_EMOJI} because his nickname is Superman. Your jersey number is {jersey_number}.")
 
-        points = points + 1
+        points_1 = points_1 + 1
 
     return points
 
@@ -435,7 +435,6 @@ def main() -> None:
                 print("Would you like to take the quiz again, take the other quiz, or exit the experience?")
                 print(f"You have {points} points, right now. Ten is the max number of points you can have but they will be rest to 0 if you choose to take a quiz again.")
                 game_loop = input("Type Y to take one of the quizzes or type N to exit the experience: ")
-                points = 0
 
             else: 
                 print(f"Ok, good bye, {player}! It was nice to meet you. Your total adventure points are {points}.")
