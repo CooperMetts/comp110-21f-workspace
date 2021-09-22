@@ -27,10 +27,11 @@ def current() -> None:
     lebron_count: int = 0
     steph_count: int = 0 
     giannis_count: int = 0 
-    harden_count: int = 0 
+    harden_count: int = 0
+    points_1: int = 0 
     global points
     global player
-    while points < 10:
+    while points_1 < 10:
         answer_one: str = ""
         answer_two: str = ""
         answer_three: str = ""
@@ -41,7 +42,7 @@ def current() -> None:
         answer_eight: str = ""
         answer_nine: str = ""
         answer_ten: str = ""
-        if points == 0: 
+        if points_1 == 0: 
             print("Which do you prefer: \n A. Tacos \n B. Popcorn \n C. Smoothie \n D. Chicken wings")
             answer_one = input("Type the letter of your answer: ")
 
@@ -57,7 +58,7 @@ def current() -> None:
                         if answer_one == "D":
                             harden_count = harden_count + 1
 
-        if points == 1:
+        if points_1 == 1:
             print("What type of basketball player are you: \n A. Facilitator \n B. Shooter \n C. Paint beast \n D. All-around scorer")
             answer_two = input("Type the letter of your answer: ")
 
@@ -73,7 +74,7 @@ def current() -> None:
                         if answer_two == "D": 
                             harden_count = harden_count + 1
 
-        if points == 2: 
+        if points_1 == 2: 
             print("If you were in the NBA, what would be your top priority: \n A. Winning championships \n B. Money \n C. Loyalty \n D. Playing with your friends")
             answer_three = input("Type the letter of your answer: ")
 
@@ -89,7 +90,7 @@ def current() -> None:
                         if answer_three == "D": 
                             harden_count = harden_count + 1
 
-        if points == 3: 
+        if points_1 == 3: 
             print("If you were in the NBA, what would you do with your time off: \n A. Read the first page of a book \n B. Stay at home with family \n C. More basketball \n D. Go to the strip club")
             answer_four = input("Type the letter of your answer: ")
 
@@ -105,7 +106,7 @@ def current() -> None:
                         if answer_four == "D": 
                             harden_count = harden_count + 1
 
-        if points == 4: 
+        if points_1 == 4: 
             print("If you weren’t a basketball player, what would you be: \n A. Football player \n B. Golfer \n C. McDonald's employee \n D. Rapper")
             answer_five = input("Type the letter of your answer: ")
 
@@ -121,7 +122,7 @@ def current() -> None:
                         if answer_five == "D": 
                             harden_count = harden_count + 1
 
-        if points == 5: 
+        if points_1 == 5: 
             print("Would you prefer to play for a big or small market team: \n A. Doesn't matter \n B. Big \n C. Small \n D. Wherever my friends are")
             answer_six = input("Type the letter of your answer: ")
 
@@ -137,7 +138,7 @@ def current() -> None:
                         if answer_six == "D":
                             harden_count = harden_count + 1
 
-        if points == 6:
+        if points_1 == 6:
             print("Of the following NBA players, which is your least favorite: \n A. Lance Stephenson \n B. Patrick Beverly \n C. Mario Hezonja \n D. Giannis Antetokounmpo")
             answer_seven = input("Type the letter of your answer: ")
 
@@ -153,7 +154,7 @@ def current() -> None:
                         if answer_seven == "D":
                             harden_count = harden_count + 1
 
-        if points == 7:
+        if points_1 == 7:
             print("Of the following NBA players, which is your most favorite: \n A. Carmelo Anthony \n B. Klay Thompson \n C. Khris Middleton \n D. Kevin Durant")
             answer_eight = input("Type the letter of your answer: ")
 
@@ -169,7 +170,7 @@ def current() -> None:
                         if answer_eight == "D":
                             harden_count = harden_count + 1
 
-        if points == 8: 
+        if points_1 == 8: 
             print("If you could play on any team in the NBA, which would it be: \n A. LA Lakers \n B. Golden State Warriors \n C. Milwaukee Bucks \n D. Brooklyn Nets")
             answer_nine = input("Type the letter of your answer: ")
 
@@ -185,7 +186,7 @@ def current() -> None:
                         if answer_nine == "D":
                             harden_count = harden_count + 1
 
-        if points == 9: 
+        if points_1 == 9: 
             print("What is your least favorite team in the NBA: \n A. San Antonio Spurs \n B. Cleveland Cavaliers \n C. Miami Heat \n D. Golden State Warriors")
             answer_ten = input("Type the letter of your answer: ")
 
@@ -214,6 +215,7 @@ def current() -> None:
                 print(f"{player}, your current NBA superstar is James Harden because you answered {harden_count} questions the way James would have. \n Your emoji is {HARDEN_EMOJI} because his nickname is the Beard. \n Your jersey number is {jersey_number}.")
 
         points = points + 1
+        points_1 = points_1 + 1
 
 
 def former(x: int) -> int:
@@ -408,7 +410,7 @@ def former(x: int) -> int:
 
         points_1 = points_1 + 1
 
-    return points
+    return points_1
 
 
 def main() -> None:
@@ -424,14 +426,15 @@ def main() -> None:
             current()
 
             print("Would you like to take the quiz again, take the other quiz, or exit the experience?")
-            print(f"You have {points} points, right now. Ten is the max number of points you can have but they will be rest to 0 if you choose to take a quiz again.")
+            print(f"You have {points} points, right now. Ten is the max number of points you can have in order to take the quiz, but they will be rest to 0 if you choose to take a quiz again.")
             game_loop = input("Type Y to take one of the quizzes or type N to exit the experience: ")
             points = 0
 
         else: 
             if greet_answer == "B":
-                former(points)
+                points = former(points)
 
+                print(points)
                 print("Would you like to take the quiz again, take the other quiz, or exit the experience?")
                 print(f"You have {points} points, right now. Ten is the max number of points you can have but they will be rest to 0 if you choose to take a quiz again.")
                 game_loop = input("Type Y to take one of the quizzes or type N to exit the experience: ")
@@ -440,7 +443,7 @@ def main() -> None:
                 print(f"Ok, good bye, {player}! It was nice to meet you. Your total adventure points are {points}.")
                 game_loop = "N"
 
-    print(f"Ok, nice playing {player}! Your score was {points}")
+    print(f"Ok, nice playing {player}! Your score was {points} points.")
 
 
 if __name__ == "__main__":
