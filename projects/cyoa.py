@@ -1,4 +1,11 @@
-"""NBA Superstar quiz."""
+"""NBA Superstar quiz.
+
+Required global variables: lines 7-17
+Main function: line 419
+Greet procedure: line 22
+Custom procedure: line 31
+Custom function: line 227
+"""
 
 from random import randint
 
@@ -42,7 +49,7 @@ def current() -> None:
         answer_eight: str = ""
         answer_nine: str = ""
         answer_ten: str = ""
-        if points_1 == 0: 
+        if points_1 == 0:
             print("Which do you prefer: \n A. Tacos \n B. Popcorn \n C. Smoothie \n D. Chicken wings")
             answer_one = input("Type the letter of your answer: ")
 
@@ -213,6 +220,9 @@ def current() -> None:
 
             if harden_count > lebron_count and harden_count > steph_count and harden_count > giannis_count:
                 print(f"{player}, your current NBA superstar is James Harden because you answered {harden_count} questions the way James would have. \n Your emoji is {HARDEN_EMOJI} because his nickname is the Beard. \n Your jersey number is {jersey_number}.")
+
+            if lebron_count == steph_count or lebron_count == giannis_count or lebron_count == harden_count or steph_count == giannis_count or steph_count == harden_count or giannis_count == harden_count:
+                print("Your quiz indicates you have a tie between two or more superstars. Maybe retake the quiz to see if you can break the tie!")
 
         points = points + 1
         points_1 = points_1 + 1
@@ -407,6 +417,9 @@ def former(x: int) -> int:
 
             if shaq_count > jordan_count and shaq_count > garnett_count and shaq_count > iverson_count:
                 print(f"{player}, your former NBA superstar is Shaquille O'Neal because you answered \n {shaq_count} questions the way Shaq would have. \n Your emoji is {SHAQ_EMOJI} because his nickname is Superman. Your jersey number is {jersey_number}.")
+
+            if jordan_count == garnett_count or jordan_count == iverson_count or jordan_count == shaq_count or garnett_count == iverson_count or garnett_count == shaq_count or iverson_count == shaq_count:
+                print("Your quiz indiciates you have a tie between two or more superstars. Maybe take the quiz again to see if you can break the tie!") 
 
         points_1 = points_1 + 1
 
