@@ -5,13 +5,14 @@ Main function: line 419
 Greet procedure: line 22
 Custom procedure: line 31
 Custom function: line 227
+Important note: I could not figure out how to show ties, 
+so when you go through the quizzes, please make sure you pick 
+one letter more than the others. Thanks and sorry!
 """
 
 from random import randint
+__author__ = "730336784"
 
-jersey_number: int = randint(0, 45)
-player: str 
-points: int  
 LEBRON_EMOJI: str = "\U0001F451"
 STEPH_EMOJI: str = "\U0001F4A6"
 GIANNIS_EMOJI: str = "\U0001F1EC"
@@ -22,7 +23,13 @@ IVERSON_EMOJI: str = "\U0001F3C0"
 SHAQ_EMOJI: str = "\U0001F9B8"
 
 
-def greeting() -> None:
+jersey_number: int = randint(0, 45)
+player: str 
+points: int  
+
+
+def greet() -> None:
+    """Greet function."""
     global player
     print("Hello! What is your name?")
     player = input("Enter your name here: ")
@@ -30,7 +37,8 @@ def greeting() -> None:
     print("This program has two fun quizzes. The first one asks ten questions that gauge which current NBA superstar you are most like. The second quiz does the same thing but with former NBA superstars.") 
 
 
-def current() -> None: 
+def current() -> None:
+    """Custom procedure.""" 
     lebron_count: int = 0
     steph_count: int = 0 
     giannis_count: int = 0 
@@ -51,7 +59,7 @@ def current() -> None:
         answer_ten: str = ""
         if points_1 == 0:
             print("Which do you prefer: \n A. Tacos \n B. Popcorn \n C. Smoothie \n D. Chicken wings")
-            answer_one = input("Type the letter of your answer: ")
+            answer_one = input("Type the letter of your answer — answers are case sensitive: ")
 
             if answer_one == "A": 
                 lebron_count = lebron_count + 1
@@ -221,14 +229,12 @@ def current() -> None:
             if harden_count > lebron_count and harden_count > steph_count and harden_count > giannis_count:
                 print(f"{player}, your current NBA superstar is James Harden because you answered {harden_count} questions the way James would have. \n Your emoji is {HARDEN_EMOJI} because his nickname is the Beard. \n Your jersey number is {jersey_number}.")
 
-            if lebron_count == steph_count or lebron_count == giannis_count or lebron_count == harden_count or steph_count == giannis_count or steph_count == harden_count or giannis_count == harden_count:
-                print("Your quiz indicates you have a tie between two or more superstars. Maybe retake the quiz to see if you can break the tie!")
-
         points = points + 1
         points_1 = points_1 + 1
 
 
 def former(x: int) -> int:
+    """Custom function."""
     jordan_count: int = 0
     garnett_count: int = 0
     iverson_count: int = 0
@@ -264,7 +270,7 @@ def former(x: int) -> int:
 
         if points_1 == 1: 
             print("What type of basketball player are you: \n A. All-around \n B. Traditional big-man \n C. Offensive juggernaut \n D. Paint beast")
-            answer_two = input("Type the letter of your answer: ")
+            answer_two = input("Type the letter of your answer — answers are case sensitive: ")
 
             if answer_two == "A":
                 jordan_count = jordan_count + 1
@@ -418,23 +424,21 @@ def former(x: int) -> int:
             if shaq_count > jordan_count and shaq_count > garnett_count and shaq_count > iverson_count:
                 print(f"{player}, your former NBA superstar is Shaquille O'Neal because you answered \n {shaq_count} questions the way Shaq would have. \n Your emoji is {SHAQ_EMOJI} because his nickname is Superman. Your jersey number is {jersey_number}.")
 
-            if jordan_count == garnett_count or jordan_count == iverson_count or jordan_count == shaq_count or garnett_count == iverson_count or garnett_count == shaq_count or iverson_count == shaq_count:
-                print("Your quiz indiciates you have a tie between two or more superstars. Maybe take the quiz again to see if you can break the tie!") 
-
         points_1 = points_1 + 1
 
     return points_1
 
 
 def main() -> None:
-    greeting()
+    """Main function."""
+    greet()
     global points
     global player
     points = 0
     game_loop: str = "Y"
     while game_loop == "Y":
         print("Would you like to take a quiz to find out which current or former NBA superstar you are? Or would you like to exit the experience?")
-        greet_answer: str = input("A. Current \n B. Former \n C. Exit \n Enter your answer here: ")
+        greet_answer: str = input("A. Current \n B. Former \n C. Exit \n Enter your answer here — answers are case sensitive: ")
         if greet_answer == "A":
             current()
 
