@@ -108,3 +108,32 @@ def concat(c: dict[str, list[str]], d: dict[str, list[str]]) -> dict[str, list[s
             # this is saying if the key is not already in new_one to add it to new_one and set its value to the value of the dict d[at whatever key (or column) the for...in... loop is currently on]
             new_one[column] = d[column]
     return new_one
+
+
+# r being combo and s being ease
+def yes_understanding(r: dict[str, list[str]], s: dict[str, list[int]], key_1: str, key_2: str, key_3: str) -> list[int]: 
+    yes_ease: list[int] = []
+    i: int = 0 
+    count: int = 1
+    while i < len(r[key_1]):
+        if r[key_1][i] == "Yes" or r[key_2][i] == "Yes" and (s[key_3][i] == "5" or s[key_3][i] == "6" or s[key_3][i] == "7"):
+            yes_ease.append(count)
+            count = count + 1
+            i = i + 1
+        else: 
+            i = i + 1
+    return yes_ease
+
+
+def no_understanding(e: dict[str, list[str]], f: dict[str, list[str]], key_1: str, key_2: str, key_3: str) -> list[int]:
+    no_ease: list[int] = []
+    i: int = 0 
+    count: int = 1
+    while i < len(e[key_1]):
+        if e[key_1][i] == "No" and e[key_2][i] == "No" and (f[key_3][i] == "3" or f[key_3][i] == "2" or f[key_3][i] == "1"):
+            no_ease.append(count)
+            count = count + 1
+            i = i + 1
+        else: 
+            i = i + 1
+    return no_ease
