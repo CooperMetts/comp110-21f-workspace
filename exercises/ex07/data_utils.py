@@ -108,3 +108,12 @@ def concat(c: dict[str, list[str]], d: dict[str, list[str]]) -> dict[str, list[s
             # this is saying if the key is not already in new_one to add it to new_one and set its value to the value of the dict d[at whatever key (or column) the for...in... loop is currently on]
             new_one[column] = d[column]
     return new_one
+
+def count(responses: list[str]) -> dict[str, int]: 
+    occurences: dict[str, int] = {}
+    for response in responses: 
+        if response in occurences: 
+            occurences[response] = occurences[response] + 1
+        else: 
+            occurences[response] = 1
+    return occurences

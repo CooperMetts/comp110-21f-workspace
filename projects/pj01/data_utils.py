@@ -130,10 +130,48 @@ def no_understanding(e: dict[str, list[str]], f: dict[str, list[str]], key_1: st
     i: int = 0 
     count: int = 1
     while i < len(e[key_1]):
-        if e[key_1][i] == "No" and e[key_2][i] == "No" and (f[key_3][i] == "3" or f[key_3][i] == "2" or f[key_3][i] == "1"):
+        if e[key_1][i] == "No" and e[key_2][i] == "No" and (f[key_3][i] == "5" or f[key_3][i] == "6" or f[key_3][i] == "7"):
             no_ease.append(count)
             count = count + 1
             i = i + 1
         else: 
             i = i + 1
     return no_ease
+
+def count(responses: list[str]) -> dict[str, int]: 
+    occurences: dict[str, int] = {}
+    for response in responses: 
+        if response in occurences: 
+            occurences[response] = occurences[response] + 1
+        else: 
+            occurences[response] = 1
+    return occurences
+
+def no_count(responses_principles: dict[str, list[str]], responses_a: dict[str, list[str]], key_1: str, key_2: str) -> list[int]: 
+    occurences: list[int] = []
+    i: int = 0
+    count: int = 1
+    while i < len(responses_a[key_2]):
+        if responses_principles[key_1][i] == "No" and responses_a[key_2][i] == "No":
+            occurences.append(count)
+            count = count + 1
+            i = i + 1
+        else: 
+            i = i + 1
+    return occurences
+
+def yes_count(responses_principles: dict[str, list[str]], responses_a: dict[str, list[str]], key_1: str, key_2: str) -> list[int]: 
+    occurences: list[int] = []
+    i: int = 0
+    count: int = 1
+    while i < len(responses_a[key_2]):
+        if responses_principles[key_1][i] == "Yes" or responses_a[key_2][i] == "Yes":
+            occurences.append(count)
+            count = count + 1
+            i = i + 1
+        else: 
+            i = i + 1
+    return occurences
+    
+    
+    
