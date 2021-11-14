@@ -112,6 +112,7 @@ def concat(c: dict[str, list[str]], d: dict[str, list[str]]) -> dict[str, list[s
 
 # r being combo and s being ease
 def yes_understanding(r: dict[str, list[str]], s: dict[str, list[int]], key_1: str, key_2: str, key_3: str) -> list[int]: 
+    """Makes a list of how many people took an AP Computer Science class and thought COMP 110 was easy."""
     yes_ease: list[int] = []
     i: int = 0 
     count: int = 1
@@ -126,6 +127,7 @@ def yes_understanding(r: dict[str, list[str]], s: dict[str, list[int]], key_1: s
 
 
 def no_understanding(e: dict[str, list[str]], f: dict[str, list[str]], key_1: str, key_2: str, key_3: str) -> list[int]:
+    """Makes a list of how many people did not take an AP Computer Science class and thought COMP 110 was easy."""
     no_ease: list[int] = []
     i: int = 0 
     count: int = 1
@@ -139,6 +141,7 @@ def no_understanding(e: dict[str, list[str]], f: dict[str, list[str]], key_1: st
     return no_ease
 
 def count(responses: list[str]) -> dict[str, int]: 
+    """Counts occurences in a list of str."""
     occurences: dict[str, int] = {}
     for response in responses: 
         if response in occurences: 
@@ -148,6 +151,7 @@ def count(responses: list[str]) -> dict[str, int]:
     return occurences
 
 def no_count(responses_principles: dict[str, list[str]], responses_a: dict[str, list[str]], key_1: str, key_2: str) -> list[int]: 
+    """Used to count the total number of students that said they did not take an AP Computer Science class."""
     occurences: list[int] = []
     i: int = 0
     count: int = 1
@@ -161,6 +165,7 @@ def no_count(responses_principles: dict[str, list[str]], responses_a: dict[str, 
     return occurences
 
 def yes_count(responses_principles: dict[str, list[str]], responses_a: dict[str, list[str]], key_1: str, key_2: str) -> list[int]: 
+    """Used to count the total number of students that said they did took an AP Computer Science class."""
     occurences: list[int] = []
     i: int = 0
     count: int = 1
